@@ -353,8 +353,7 @@ app.get("/api/group-messages", verifyToken, async (req, res) => {
   }
 });
 
-
-mongoose.connect(process.env.MONGO_URI="mongodb+srv://Chat123App:hello456kum92@chatapplication.3ubmmth.mongodb.net/=ChatApplication")
+mongoose.connect(process.env.MONGO_URI)
 
 
 
