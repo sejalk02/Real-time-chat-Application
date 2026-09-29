@@ -2,7 +2,7 @@ import { useState, useEffect, useRef} from "react";
 import  {io} from "socket.io-client";
 import "./App.css";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://real-time-chat-application-26nh.onrender.com");
 
 
 socket.on("connect", () => {
@@ -68,7 +68,7 @@ useEffect(() => {
     setMessages([]);
     try{
       const response = await fetch(
-        `http://localhost:5000/api/messages?sender=${currentUser._id}&receiver=${selectedUser._id}`,
+        ` https://real-time-chat-application-26nh.onrender.com/api/messages?sender=${currentUser._id}&receiver=${selectedUser._id}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -130,7 +130,7 @@ useEffect(() => {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        `http://localhost:5000/api/group-messages?groupId=${selectedGroup._id}`,
+        ` https://real-time-chat-application-26nh.onrender.com/api/group-messages?groupId=${selectedGroup._id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -188,7 +188,7 @@ useEffect(() => {
       console.log("Token exists:", !!token);
 
       const response = await fetch(
-        "http://localhost:5000/api/groups",
+        " https://real-time-chat-application-26nh.onrender.com/api/groups",
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -501,7 +501,7 @@ const registerUser = async () => {
     console.log("SELECTED AVATAR:", selectedAvatar);
     console.log("PROFILE PIC:", profilePic);
 
-    const response = await fetch("http://localhost:5000/api/register", {
+    const response = await fetch(" https://real-time-chat-application-26nh.onrender.com/api/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -534,7 +534,7 @@ const registerUser = async () => {
   
   const loginUser = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/login", {
+      const response = await fetch(" https://real-time-chat-application-26nh.onrender.com/api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -564,7 +564,7 @@ const registerUser = async () => {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await fetch("http://localhost:5000/api/users", {
+      const response = await fetch(" https://real-time-chat-application-26nh.onrender.com/api/users", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -605,7 +605,7 @@ const registerUser = async () => {
     const token = localStorage.getItem("token");
 
     const response = await fetch(
-      "http://localhost:5000/api/group-messages",
+      " https://real-time-chat-application-26nh.onrender.com/api/group-messages",
       {
         method: "POST",
         headers: {
@@ -673,7 +673,7 @@ const registerUser = async () => {
       }
       try{
       const response = await fetch(
-        "http://localhost:5000/api/messages",
+        " https://real-time-chat-application-26nh.onrender.com/api/messages",
         {
           method: "POST",
           headers: {
@@ -735,7 +735,7 @@ const registerUser = async () => {
     const token = localStorage.getItem("token");
 
     const response = await fetch(
-      `http://localhost:5000/api/messages/${messageId}`,
+      ` https://real-time-chat-application-26nh.onrender.com/api/messages/${messageId}`,
       {
         method: "DELETE",
         headers: {
@@ -780,7 +780,7 @@ const registerUser = async () => {
       try {
         const token = localStorage.getItem("token");
         const   response  = await fetch(
-          "http://localhost:5000/api/groups",
+          " https://real-time-chat-application-26nh.onrender.com/api/groups",
           {
             method: "POST",
             headers: {
@@ -822,7 +822,7 @@ const uploadFile = async (file) => {
     formData.append("file", file);
 
     const uploadResponse = await fetch(
-      "http://localhost:5000/api/upload",
+      " https://real-time-chat-application-26nh.onrender.com/api/upload",
       {
         method: "POST",
         body: formData
@@ -883,7 +883,7 @@ const sendGif = async (gifUrl, gifTitle) => {
     const token = localStorage.getItem("token");
 
     const response = await fetch(
-      "http://localhost:5000/api/messages",
+      " https://real-time-chat-application-26nh.onrender.com/api/messages",
       {
         method: "POST",
         headers: {
@@ -946,7 +946,7 @@ const sendGroupGif = async (gifUrl, gifTitle) => {
     const token = localStorage.getItem("token");
 
     const response = await fetch(
-      "http://localhost:5000/api/group-messages",
+      " https://real-time-chat-application-26nh.onrender.com/api/group-messages",
       {
         method: "POST",
         headers: {
@@ -1304,7 +1304,7 @@ const sendGroupGif = async (gifUrl, gifTitle) => {
               const token = localStorage.getItem("token");
 
               const response = await fetch(
-                `http://localhost:5000/api/groups/${selectedGroup._id}`,
+                ` https://real-time-chat-application-26nh.onrender.com/api/groups/${selectedGroup._id}`,
                 {
                   method: "DELETE",
                   headers: {
